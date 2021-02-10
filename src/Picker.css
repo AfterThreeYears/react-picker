@@ -1,0 +1,13 @@
+.checked {
+  color: red;
+}
+
+.colums-picker {
+  position: relative;
+}
+
+.colums-item {
+  margin: 0;
+  height: 40px;
+  line-height: 40px;
+}
