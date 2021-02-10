@@ -25,9 +25,10 @@ const Picker: FC<Props> = (props) => {
   const {
     columns,
     onChange,
+    value,
   } = props;
   const level = props.level || 0;
-  const currentValue = (props.value || [])[level];
+  const currentValue = (value || [])[level];
   const index = React.useMemo(() => columns.findIndex(column => column.value === currentValue), [currentValue, columns]);
   const childColumns = columns[index === -1 ? 0 : index].children;
   const [top, setTop] = useState(index * -HEIGHT + HEIGHT);
@@ -91,7 +92,7 @@ const Picker: FC<Props> = (props) => {
         {
           Array.isArray(childColumns)
             ? <Picker
-                value={props.value}
+                value={value}
                 columns={childColumns}
                 level={level + 1}
                 onChange={onChange}
